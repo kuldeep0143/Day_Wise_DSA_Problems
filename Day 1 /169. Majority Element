@@ -1,0 +1,20 @@
+class Solution {
+    //Approach 1 iterative TC => 0(nlogn) and SC => 0(1)
+    // public int majorityElement(int[] nums) {
+    //     Arrays.sort(nums);
+    //     return nums[nums.length/2];
+    // }
+
+    //Approach 2 Boyer-Moore Voting Algorithm TC =>0(n) and SC => 0(1)
+    public int majorityElement(int[] nums) {
+    int count = 0 ;
+    int ans = nums[0];
+    for(int num : nums){
+        if(count==0) ans = num;
+        if(num==ans)count++;
+        else count--;
+    }
+    return ans;
+}
+
+}
