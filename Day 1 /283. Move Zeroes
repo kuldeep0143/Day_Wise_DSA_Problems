@@ -1,0 +1,24 @@
+// time complexity of O(n) and a space complexity of O(n).
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+         int zero=0;
+         List<Integer> output = new ArrayList<Integer>();
+//count 0 and IF not then add on List
+         for(int i =0;i<nums.length;i++){
+             if(nums[i]==0) zero++;
+             else{
+                 output.add(nums[i]);
+             }
+         }
+         //Add zeros on List
+         for(int j = 0;j<zero;j++){
+             output.add(0);
+         }
+            //Assign List elements into array
+         for(int k=0;k<nums.length;k++){
+             nums[k]=output.get(k);
+         }
+
+    }
+}
