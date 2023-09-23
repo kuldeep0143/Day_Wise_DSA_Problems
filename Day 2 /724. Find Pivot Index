@@ -1,0 +1,20 @@
+//TC => 0(n) & SC => 0(1)
+class Solution {
+    public int pivotIndex(int[] nums) {
+        int totalSum = 0;
+        int leftSum=0;
+        //Calculate Total Sum
+    for(int num : nums){
+        totalSum+=num;
+    }
+    for(int i =0;i<nums.length;i++){
+        //Chech this condition if leftSum==Right sum
+        if(leftSum == totalSum-leftSum-nums[i]){
+            return i;
+        }
+        leftSum+=nums[i];
+    }
+    return -1;
+        
+    }
+}
