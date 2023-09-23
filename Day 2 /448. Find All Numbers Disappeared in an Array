@@ -1,0 +1,43 @@
+class Solution {
+//Brute force Approach TC => 0(N*N)
+
+//     public List<Integer> findDisappearedNumbers(int[] nums) {
+//         List <Integer> res = new ArrayList<Integer>();
+        
+//         for(int i=1;i<=nums.length;i++){
+//             boolean found = false;
+//             for(int num : nums){
+//                 if(num==i){
+//                     found = true;
+//                     break;
+//                 }
+//             }
+//             if(!found){
+//                 res.add(i);
+//             }
+//         }
+//         return res;
+//     }
+// }
+
+public List<Integer> findDisappearedNumbers(int[] nums) {
+    List<Integer> result = new ArrayList<>();
+
+    // Mark numbers as negative based on their index
+    for (int i = 0; i < nums.length; i++) {
+        int num = Math.abs(nums[i]); // Get the absolute value to handle negative numbers
+        if (nums[num - 1] > 0) {
+            nums[num - 1] = -nums[num - 1];
+        }
+    }
+
+    // Find the indices of positive numbers
+    for (int i = 0; i < nums.length; i++) {
+        if (nums[i] > 0) {
+            result.add(i + 1); // Add the missing number to the result
+        }
+    }
+
+    return result;
+}
+}
