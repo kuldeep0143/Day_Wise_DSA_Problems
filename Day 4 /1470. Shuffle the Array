@@ -1,0 +1,17 @@
+//Three Pointers Approach Tc => 0(N) & SC => 0(N)
+class Solution {
+    public int[] shuffle(int[] nums, int n) {
+        int[] ans = new int[2 * n];
+        int i =0 ,j=n,k=0;
+
+        while(k < 2*n){
+            ans[k] = nums[i];
+            k++;
+            i++;
+            ans[k] = nums[j];
+            k++;
+            j++;
+        }
+        return ans;
+    }
+}
