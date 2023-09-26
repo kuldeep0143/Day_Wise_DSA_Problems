@@ -1,0 +1,19 @@
+//Iterative Approach TC =>0(N) & SC => 0(N)
+class Solution {
+    public int[] sortArrayByParity(int[] nums) {
+        int [] res = new int [nums.length];
+        int evenIDX = 0;
+        int oddIDX = nums.length-1;
+       for(int val : nums){
+            if(val % 2 == 0){
+                res[evenIDX] = val;
+                evenIDX++;
+            }
+            else{
+                res[oddIDX] = val;
+                oddIDX--; 
+            }
+        }
+        return res;
+    }
+}
