@@ -9,6 +9,7 @@ class Solution {
         // Traverse the increasing part of the mountain
         while (i < n - 1 && arr[i] < arr[i + 1]) {
             i++;
+
         }
         
         // Check if the peak is not at the beginning or end
