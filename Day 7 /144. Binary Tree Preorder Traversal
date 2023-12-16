@@ -13,4 +13,5 @@ class Solution {
 	traversal(root.left);
 	traversal(root.right);
    }
+
 }
