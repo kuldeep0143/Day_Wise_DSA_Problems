@@ -16,7 +16,7 @@ class Solution {
 //     }
 // }
 
-  //Recursive TC => 0(N) & SC => 0(1)
+  //Recursive TC => 0(N) & SC => 0(N)
 
 public ListNode reverseList(ListNode head) {
     if(head == null || head.next == null){
