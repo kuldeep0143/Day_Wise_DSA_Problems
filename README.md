@@ -3,12 +3,15 @@ I'm thrilled to share a personal milestone on my journey towards mastering Data 
 💡 Why did I take on this challenge?
 
 ✅ Skill Enhancement: Sharpening my problem-solving skills and gaining a deeper understanding of Data Structures and Algorithms.
+
 ✅ Interview Preparation: Equipping myself with the knowledge needed to ace technical interviews.
+
 ✅ Consistency: Cultivating a habit of consistent learning and growth.
 
 📚 Key Takeaways:
 
 1️⃣ Daily Commitment: Setting aside dedicated time each day for learning is crucial. Small, consistent efforts lead to significant progress.
+
 2️⃣ Java Mastery: Using Java to solve problems not only improved my algorithmic thinking but also enhanced my proficiency in the language.
 
 🔗 The Journey Ahead:
