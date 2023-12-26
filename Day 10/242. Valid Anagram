@@ -1,0 +1,30 @@
+class Solution {
+// Approach 1 TC => 0(nlogn) and SC => 0(n)
+
+    // public String sortString(String str){
+    //     char temp[] = str.toCharArray();
+    //     Arrays.sort(temp);
+    //     return new String (temp);
+    // }
+    // public boolean isAnagram(String s,String t){
+//     if(s.length()!=t.length()){
+//         return false;
+//     }
+//     return sortString(s)==sortString(t);
+// }
+// }
+    public boolean isAnagram(String s, String t) {
+        
+    if (s.length() != t.length()) {
+            return false;
+        }
+        
+        int[] store = new int[26];
+        for(int i=0;i<s.length();i++) { 
+             store[s.charAt(i)-'a']++;
+             store[t.charAt(i)-'a']--;
+        }
+        for(int i : store) if(i!=0) return false;
+        return true;
+    }
+}
