@@ -1,0 +1,25 @@
+class Solution {
+    public String reverseOnlyLetters(String s) {
+        int i = 0 , j= s.length()-1;
+        char [] sb = s.toCharArray();
+
+        while(i<j){
+            if(isAlphabet(sb[i])){
+                if(isAlphabet(sb[j])) {
+                    char temp = sb[i];
+                    sb[i++] =sb[j];
+                    sb[j--] = temp;
+                } else {
+                    j--;
+                }
+            } else {
+                i++;
+            }
+        }
+        return new String (sb);
+    }
+    private boolean isAlphabet(char c) {
+        if((c >='A' && c<='Z') || (c>='a' && c<='z')) return true;
+        return false;
+    }
+}
