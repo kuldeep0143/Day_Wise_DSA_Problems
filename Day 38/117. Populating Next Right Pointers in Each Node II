@@ -1,0 +1,34 @@
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        if(root == null) return;
+        
+        TreeLinkNode cur = root;
+        while(cur != null){
+            if(cur.left != null){
+                cur.left.next = (cur.right != null) ? cur.right : getNext(cur);
+            }
+            
+            if(cur.right != null){
+                cur.right.next = getNext(cur);
+            }
+            
+            cur = cur.next;
+        }
+        
+        connect(root.left);
+        connect(root.right);
+    }
+    
+    private TreeLinkNode getNext(TreeLinkNode root){
+        TreeLinkNode temp = root.next;
+        
+        while(temp != null){
+            if(temp.left != null) return temp.left;
+            if(temp.right != null) return temp.right;
+            
+            temp = temp.next;
+        }
+        
+        return null;
+    }
+}
