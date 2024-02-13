@@ -1,0 +1,41 @@
+class Solution {
+    public int[] findDiagonalOrder(int[][] mat) {
+        
+        int row = 0;
+        int col = 0;
+        int m = mat.length;
+        int n = mat[0].length;
+        int res [] = new int [m * n];
+
+        for(int i=0; i<res.length; i++) {
+            res[i] = mat[row][col];
+
+            if((row + col) % 2 == 0) {
+                // Forward diagnol
+                if(col == n-1) {
+                    // We cannot go right , have to go down now
+                    row ++;
+                } else if(row == 0) {
+                    // We cannot go up, have to go right
+                    col ++;
+                } else {
+                    row --;
+                    col ++;
+                }
+            } else {
+                // Backward diagnol
+                if(row == m-1) {
+                    // We cannot go down , have to go right
+                    col ++;
+                } else if(col == 0) {
+                    // We cannot go left , have to go down now
+                    row ++; 
+                } else {
+                    row ++;
+                    col --;
+                }
+            }
+        }
+        return res;
+    }
+}
