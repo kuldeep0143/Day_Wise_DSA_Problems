@@ -1,0 +1,36 @@
+class Solution {
+    // TC => O(n*m) && SC => O(m)
+    public boolean check(String[] words,String pattern,int i){
+        HashMap<Character,Character> map = new HashMap<>();
+        for(int j = 0;j<pattern.length();j++){
+            if(map.containsKey(pattern.charAt(j)) && map.get(pattern.charAt(j)) == words[i].charAt(j)){
+                  continue; 
+            } 
+            else if(map.containsKey(pattern.charAt(j)) && map.get(pattern.charAt(j)) != words[i].charAt(j)){
+                return false;
+            }
+            else if(!map.containsKey(pattern.charAt(j)) && map.containsValue(words[i].charAt(j))){
+                return false;
+            } 
+            else{
+                map.put(pattern.charAt(j),words[i].charAt(j));
+            }
+        }
+        return true;
+    }
+    public List<String> findAndReplacePattern(String[] words, String pattern) {
+        boolean[] bool = new boolean[words.length];
+        List<String> list = new ArrayList<>();
+        
+        for(int i = 0;i<words.length;i++){
+            bool[i] = check(words,pattern,i);
+        }
+        
+        for(int i = 0;i<bool.length;i++){
+            if(bool[i] == true){
+                list.add(words[i]);
+            }
+        }
+        return list;
+    }
+}
