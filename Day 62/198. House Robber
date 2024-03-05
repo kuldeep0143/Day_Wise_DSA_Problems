@@ -1,0 +1,15 @@
+class Solution {
+     // TC => O(n)&& SC => O(1)
+    public int rob(int[] nums) {
+        int maxPrev1 = 0;
+        int maxPrev2 = 0;
+
+        for (int num : nums) {
+            int currentMax = Math.max(maxPrev1, maxPrev2 + num);
+            maxPrev2 = maxPrev1;
+            maxPrev1 = currentMax;
+        }
+
+        return maxPrev1;
+    }
+}
