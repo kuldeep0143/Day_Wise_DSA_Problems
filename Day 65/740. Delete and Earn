@@ -1,0 +1,27 @@
+class Solution {
+     //TC => O(n * log(n)) && SC => O(n)
+    public int deleteAndEarn(int[] nums) {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+		for (int num : nums) {
+			map.put(num, map.getOrDefault(num, 0) + 1);
+		}
+
+		int prevSum = 0;
+		int currSum = 0;
+		int prevKey = -1;
+
+		for (int key : map.keySet()) {
+			int m = Math.max(prevSum, currSum);
+			if (key - 1 != prevKey) {
+				currSum = key * map.get(key) + m;
+				prevSum = m;
+			} else {
+				currSum = key * map.get(key) + prevSum;
+				prevSum = m;
+			}
+			prevKey = key;
+		}
+
+		return Math.max(prevSum, currSum);
+    }
+}
